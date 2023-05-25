@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lin’s Shiny Notes</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Lin Yu" />
+    <meta name="date" content="2023-05-05" />
+    <script src="shiny_study_summary_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Lin’s Shiny Notes
+]
+.author[
+### Lin Yu
+]
+.date[
+### 2023-05-05
+]
+
+---
+
+
+
+
+
+
+## Elements
+
+      
+.pull-left[
+### **helper.R**: 
+- #### load libraries, 
+- #### read data sets, 
+- #### generate values, tables, plots
+]
+
+
+.pull-right[
+### **ui.R** : 
+- #### design layout of your dashboard  
+
+
+### **server.R**: 
+- #### render 
+]
+
+---
+## ui.R
+
+##### header+sidebar+body: `ui &lt;- dashboardPage(header, sidebar, body )`
+
+
+```r
+source('helper.R',encoding = 'utf-8')
+
+header &lt;- 
+  dashboardHeader(title = HTML("Name of your dashboard"), 
+                   disable = FALSE, 
+                   titleWidth  = 520 ## change this 
+                  )
+
+sidebar &lt;- 
+  dashboardSidebar(
+    width = 200,
+    sidebarMenu(
+      id = 'sidebar',
+      style = "position: relative; overflow: visible;",
+      
+      menuItem("menu label 1", tabName = 'tab1', icon = icon('dashboard'),
+               badgeLabel = latest_pts_date, badgeColor = "green" ),
+      menuItem("menu label 2", tabName = 'tab2', icon = icon('dashboard'),
+               badgeLabel = '', badgeColor = "green" )
+    )
+  )
+```
+
+---
+## ui.R (cont'd)
+
+
+```r
+body &lt;- dashboardBody(
+  ### tab1------
+    tabItem( tabName = 'tab1',
+      fluidRow(
+        valueBoxOutput("enroll_hosp_tot_box")
+      ),
+      fluidRow( column( width = 6,h4("每日入组人数时序图", align = 'center'),
+                        highchartOutput("time_series_perday"))
+      ),
+      fluidRow( column( width = 6,h4("各省份启动情况", align = 'center'), 
+                        fluidRow(
+                          column(width=6,highchartOutput("map_province_ratio")),
+                          column(width=6,highchartOutput("map_province_pts"))
+                        )
+                        ),
+                column( width = 6,h4("各区域经理负责中心启动情况", align = 'center'),DT::dataTableOutput("pm_out")  )
+                )
+    ),
+  ###tab2---------
+    tabItem( tabName = 'tab2',## place holder
+            ) 
+  )
+```
+
+---
+## ui layout
+![](figures/ui_layout.png) 
+
+---
+## server.R
+
+
+```r
+server &lt;- 
+  function(input, output, session) {
+    
+    ### 1. overall-----------
+    output$enroll_tot_box &lt;- renderValueBox({
+      valueBox(
+        VB_style(enroll_tot , "font-size: 60%;"  ),"入组总人数", icon = icon('export', lib = 'glyphicon'),
+        color = "yellow"
+      )
+    })
+    output$time_series_perday &lt;- renderHighchart({p_time_series_cumday})
+    output$top10_time_series &lt;- renderPlotly({ ggplotly(p_top10_time_series,height = 400,width = 800)  })
+    output$dy_rank &lt;- renderUI({ p_dynamic_plot})
+    output$pm_out &lt;- DT::renderDataTable({
+      DT::datatable(pm11, filter='top', editable = 'cell',extensions = 'Buttons',
+                    options = list(dom = 'Blfrtip',
+                                   scrollX = TRUE,
+                                   scrollY = TRUE,
+                                   buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+                                   lengthMenu = list(c(nrow(pm11),25,50,100,-1),
+                                                     c(nrow(pm11),25,50,100,"All")),
+                                   columnDefs = list(list(className = 'dt-center', targets = c(1,2))),
+                                   columnDefs = list(list(className = 'dt-left', targets = c(3:5)))
+                                   
+                                   )) %&gt;% 
+      formatStyle(columns = 'PM', target = 'row', 
+                  fontWeight = styleEqual(c('总计'), c('bold')),
+                  backgroundColor = styleEqual(c('总计'), c('lightgrey'))) %&gt;% 
+      formatStyle(
+        c('启动医院比例(%)'),
+        background = styleColorBar( c(0,max(pm11$`启动医院比例(%)`)*2) , '#ff7518'),
+        backgroundSize = '100% 90%',
+        backgroundRepeat = 'no-repeat',
+        backgroundPosition = 'center'
+      ) %&gt;% 
+        formatStyle(
+          c( '入组人数'),
+          background = styleColorBar( c(0,max(pm11$入组人数)*2) , '#ff7518'),
+          backgroundSize = '100% 90%',
+          backgroundRepeat = 'no-repeat',
+          backgroundPosition = 'center'
+        )%&gt;% 
+        formatStyle(
+          c( '平均各中心入组人数'),
+          background = styleColorBar( c(0,max(pm11$平均各中心入组人数)*2) , '#ff7518'),
+          backgroundSize = '100% 90%',
+          backgroundRepeat = 'no-repeat',
+          backgroundPosition = 'center'
+        )
+                                                     
+    })
+  }
+```
+
+---
+## host app
+
+
+
+#### Ubuntu: 
+&gt; 1. change work directory: `cd "/mnt/e/2023/0324asthma registry/asthmaapp0417"`    
+&gt; 2. show current work: `top`   
+ ![](figures/top.png) 
+
+&gt; 3. stop R work (if necessary): kill
+&gt; 4. run the app: `nohup  R -e 'shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)' &gt; /mnt/e/2023/0324asthma registry/asthmaapp0417/asthma_app_out.log 0&gt;&amp;1 &amp;`
+
+---
+## Resources
+### 1. [colorful R  palette](https://r-charts.com/color-palettes/)
+### 2. [Map data](https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.geo.json)
+### 3. [plotly](https://plotly.com/graphing-libraries/)
+### 4. [DT](https://rstudio.github.io/DT/shiny.html)
+### 5. [highchart](https://www.highcharts.com/blog/tutorials/highcharts-for-r-users/)
+
+---
+class: center, middle
+
+# Thanks!
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
