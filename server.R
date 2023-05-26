@@ -44,7 +44,7 @@ server <-
     ### 4. output pm----
     output$pm_out <- DT::renderDataTable({
 
-      DT::datatable(pm11, filter='top', editable = 'cell',extensions = 'Buttons',
+      DT::datatable(pm12, filter='top', editable = 'cell',extensions = 'Buttons',
                     options = list(dom = 'Blfrtip',
                                    scrollX = TRUE,
                                    scrollY = TRUE,
@@ -104,6 +104,14 @@ server <-
       
     })
     
+    output$map_province_pts_address <- renderHighchart({
+      
+      hc_size(p_map_province_pts_address,600,600)
+      
+    })
+    
+    
+    
     ### 6.output province-----------
     output$province_out <- DT::renderDataTable({
  
@@ -120,9 +128,9 @@ server <-
     
     ## tab2----------
     ## 2.1 by hosp total------
-    output$by_hosp_tot <- renderHighchart({ 
+    output$address_all_p1 <- renderHighchart({ 
       
-      hc_size(p_by_hosp,400,800)
+      hc_size(address_all_p,800,800)
       # %>% layout(height = 600, width = 1000)
     })
     
@@ -131,6 +139,24 @@ server <-
     output$top10_time_series <- renderPlotly({ 
       ggplotly(p_top10_time_series,height = 400,width = 800) 
       })
+    
+    output$all_time_series <- renderPlotly({ 
+      ggplotly(hosp_time_trend_plot1,height = 400,width = 2000) 
+    })
+    ### 2.2 0606 trend all-----
+    # output$hosp_time_trend_plot <- renderPlotly({ 
+    #   ggplotly(hosp_time_trend_plot,height = 3000,width = 2000) 
+    # })
+    
+    # output$hosp_time_trend_plot <- renderPlotly({ 
+    #   ggplotly(hosp_time_trend_plot,height = 3000,width = 2000) 
+    # })
+    
+    output$hosp_time_trend_plot1 <- renderPlot({ 
+      hosp_time_trend_plot1
+    })
+
+  
     
     ### 2.3 QC---------
     output$QC_pie <- renderHighchart({
@@ -188,8 +214,8 @@ server <-
                                    scrollX = TRUE,
                                    scrollY = TRUE,
                                    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
-                                   lengthMenu = list(c(nrow(weekly_updates),25,50,100,-1),
-                                                     c(nrow(weekly_updates),25,50,100,"All"))))
+                                   lengthMenu = list(c(nrow(weekly_updates),30,50,100,-1),
+                                                     c(nrow(weekly_updates),30,50,100,"All"))))
     })
     
     
@@ -200,9 +226,32 @@ server <-
                                    scrollX = TRUE,
                                    scrollY = TRUE,
                                    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
-                                   lengthMenu = list(c(nrow(pts_followup),25,50,100,-1),
-                                                     c(nrow(pts_followup),25,50,100,"All"))))
+                                   lengthMenu = list(5,25,50,100,-1),
+                                                     c(5,25,50,100,"All")))
     })
+    
+    output$pts_followup_aft_window_t <- DT::renderDataTable({
+      
+      DT::datatable(pts_followup_aft_window, filter='top', editable = 'cell',extensions = 'Buttons',
+                    options = list(dom = 'Blfrtip',
+                                   scrollX = TRUE,
+                                   scrollY = TRUE,
+                                   buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+                                   lengthMenu = list(c(nrow(pts_followup_aft_window),25,50,100,-1),
+                                                     c(nrow(pts_followup_aft_window),25,50,100,"All"))))
+    })
+    
+    output$ QC_fill_t <- DT::renderDataTable({
+      
+      DT::datatable(QC_fill, filter='top', editable = 'cell',extensions = 'Buttons',
+                    options = list(dom = 'Blfrtip',
+                                   scrollX = TRUE,
+                                   scrollY = TRUE,
+                                   buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+                                   lengthMenu = list(c(nrow(QC_fill),25,50,100,-1),
+                                                     c(nrow(QC_fill),25,50,100,"All"))))
+    })
+   
     
   
    

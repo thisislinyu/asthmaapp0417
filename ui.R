@@ -131,7 +131,12 @@ sidebar <-
       menuItem("信息表更新", tabName = 'tab4', icon = icon('dashboard'),
                badgeLabel = '', badgeColor = "green" ),
       menuItem("超窗统计", tabName = 'tab5', icon = icon('dashboard'),
+               badgeLabel = '', badgeColor = "green" ),
+      menuItem("PM质控表", tabName = 'tab6', icon = icon('dashboard'),
                badgeLabel = '', badgeColor = "green" )
+     ,
+     menuItem("tmp", tabName = 'tab7', icon = icon('dashboard'),
+              badgeLabel = '', badgeColor = "green" )
     )
   )
 
@@ -244,16 +249,24 @@ body <- dashboardBody(
       fluidRow( column( width = 6,h4("每日入组人数时序图", align = 'center'), highchartOutput("time_series_perday")),
                 column( width = 6,h4("每周入组人数时序图", align = 'center'), highchartOutput("time_series_week") )
       ),
+     
+     fluidRow( 
+       column( width = 6,h4("哮喘患者居住地分布图", align = 'center'), highchartOutput("map_province_pts_address")),
+               column( width = 6,h4("患者入组数TOP10中心入组情况(周)", align = 'center'), plotlyOutput("top10_time_series") )
+     )
       
-      fluidRow( column( width = 6,h4("各省份启动情况", align = 'center'), 
-                        fluidRow(
-                          column(width=6,highchartOutput("map_province_ratio")),
-                          column(width=6,highchartOutput("map_province_pts"))
-                          
-                        )
-                        ),
-                column( width = 6,h4("各区域经理负责中心启动情况", align = 'center'),DT::dataTableOutput("pm_out")  )
-                )
+      # fluidRow( 
+      #   
+      #   column( width = 6,h4("各省份启动情况", align = 'center'), 
+      #                   fluidRow(
+      #                     column(width=6,highchartOutput("map_province_ratio")),
+      #                     column(width=6,highchartOutput("map_province_pts"))
+      #                     
+      #                   )
+      #                   ),
+      #           column( width = 6,h4("患者入组数TOP10中心入组情况", align = 'center'), plotlyOutput("top10_time_series") )
+      #          
+      #           )
       
       
       
@@ -265,14 +278,14 @@ body <- dashboardBody(
              ####################some output here-----------
               fluidRow( column( width = 6,h4("各中心患者入组数排名", align = 'center'), highchartOutput("by_hosp_tot")),
              #,
-                       column( width = 6,h4("患者入组数TOP10中心入组情况", align = 'center'), plotlyOutput("top10_time_series") )
+             column( width = 6,h4("各区域经理负责中心启动情况", align = 'center'),DT::dataTableOutput("pm_out")  )
              ),
              
              fluidRow( 
                #column( width = 6,h4("周入组人数排名", align = 'center'), renderUI("dy_rank")),
                        
                        column( width = 6,h4("质控数据问题分类", align = 'center'), highchartOutput("QC_pie")),
-                       column( width = 6,h4(paste0("质控进度情况(已质控",QC_center_nums ,"家中心,",QC_nums,"例患者)"), align = 'center'),DT::dataTableOutput("QC_table")  )
+                       column( width = 6,h4(paste0("质控进度情况(已质控",QC_center_nums ,"家中心,",QC_nums,"例患者,合格率",QC_pass_p,"%)"), align = 'center'),DT::dataTableOutput("QC_table")  )
                       
              )
              
@@ -314,12 +327,51 @@ body <- dashboardBody(
              #           column( width = 6,h4("患者入组数TOP10中心入组情况", align = 'center'), plotlyOutput("top10_time_series") )
              # ),
              
-             fluidRow( column( width = 12,h4("超窗统计", align = 'center'), DT::dataTableOutput("pts_firstFL"))
+             fluidRow( column( width = 12,h4("超窗患者列表", align = 'center'), DT::dataTableOutput("pts_followup_aft_window_t")),
+                       column( width = 12,h4("随访情况列表", align = 'center'), DT::dataTableOutput("pts_firstFL"))
+                       
+                       
+             )
+             
+    ),
+    tabItem( tabName = 'tab6',
+             
+             ####################some output here-----------
+             # fluidRow( column( width = 6,h4("各中心患者入组数排名", align = 'center'), highchartOutput("by_hosp_tot")),
+             #           #,
+             #           column( width = 6,h4("患者入组数TOP10中心入组情况", align = 'center'), plotlyOutput("top10_time_series") )
+             # ),
+             
+             fluidRow( column( width = 12,h4("项目经理质控表", align = 'center'), DT::dataTableOutput("QC_fill_t"))
                        
              )
              
     )
-    
+    ,
+    tabItem( tabName = 'tab7',
+
+             ####################some output here-----------
+             # fluidRow( column( width = 6,h4("各中心患者入组数排名", align = 'center'), highchartOutput("by_hosp_tot")),
+             #           #,
+             #           column( width = 6,h4("患者入组数TOP10中心入组情况", align = 'center'), plotlyOutput("top10_time_series") )
+             # ),
+
+             fluidRow(
+
+             #  column( width = 12,h4("trend", align = 'center'), plotlyOutput("hosp_time_trend_plot")  )
+
+
+                          column(width=6,
+                                 box(style='width:330px;overflow-x: scroll;height:500px;overflow-y: scroll;',
+                                     plotOutput("hosp_time_trend_plot1",width="300px",height="2500px")
+                                 ))
+                          #,
+                         # column(width=6,highchartOutput("map_province_pts_address"))
+
+             )
+
+    )
+
     
     
     
@@ -334,3 +386,4 @@ ui <-
   dashboardPage(header, sidebar, body )
 
 #shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 5257)
+

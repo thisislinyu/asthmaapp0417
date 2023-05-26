@@ -5022,3 +5022,6110 @@ Warning: Values from `总分` are not uniquely identified; output will contain l
   dplyr::group_by(您的单位名称1) %>%
   dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
   dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+Warning: Error in : The animation object does not specify a save_animation method
+  69: stop
+  68: save_animation.default
+  66: anim_save
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+Warning: Error in : The animation object does not specify a save_animation method
+  69: stop
+  68: save_animation.default
+  66: anim_save
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+Warning: Error in : The animation object does not specify a save_animation method
+  69: stop
+  68: save_animation.default
+  66: anim_save
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+Warning: Error in : The animation object does not specify a save_animation method
+  69: stop
+  68: save_animation.default
+  66: anim_save
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+Warning: Error in : The animation object does not specify a save_animation method
+  69: stop
+  68: save_animation.default
+  66: anim_save
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+Warning: Error in : The animation object does not specify a save_animation method
+  69: stop
+  68: save_animation.default
+  66: anim_save
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+Warning: Error in : The animation object does not specify a save_animation method
+  69: stop
+  68: save_animation.default
+  66: anim_save
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+Warning: Error in : The animation object does not specify a save_animation method
+  69: stop
+  68: save_animation.default
+  66: anim_save
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+Warning: Error in : `%in%`(x = value, table = names(df)) is not TRUE
+  71: <Anonymous>
+  70: stop
+  69: assertthat::assert_that
+  68: .hc_opt
+  67: hc_subtitle
+  66: %>%
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+Warning: Error in : `%in%`(x = value, table = names(df)) is not TRUE
+  71: <Anonymous>
+  70: stop
+  69: assertthat::assert_that
+  68: .hc_opt
+  67: hc_subtitle
+  66: %>%
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+Warning: Error in : `%in%`(x = value, table = names(df)) is not TRUE
+  71: <Anonymous>
+  70: stop
+  69: assertthat::assert_that
+  68: .hc_opt
+  67: hc_subtitle
+  66: %>%
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+Warning: Error in : `%in%`(x = value, table = names(df)) is not TRUE
+  71: <Anonymous>
+  70: stop
+  69: assertthat::assert_that
+  68: .hc_opt
+  67: hc_subtitle
+  66: %>%
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+Warning: Error in $<-.data.frame: replacement has 1680 rows, data has 1701
+  68: stop
+  67: $<-.data.frame
+  66: $<-
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+Warning: Error in : Failed to install 'unknown package' from GitHub:
+  Timeout was reached: [api.github.com] Resolving timed out after 10000 milliseconds
+  74: <Anonymous>
+  73: stop
+  72: value[[3L]]
+  71: tryCatchOne
+  70: tryCatchList
+  69: tryCatch
+  68: install_remotes
+  66: devtools::install_github
+  65: eval
+  64: eval
+  62: source
+   1: shiny::runApp
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> shiny::runApp(host = getOption("shiny.host", "0.0.0.0"),port = 1017)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:1017
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to create bus connection: Host is down[0m
+Warning in system("timedatectl", intern = TRUE) :
+  running command 'timedatectl' had status 1
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+Highcharts (www.highcharts.com) is a Highsoft software product which is
+not free for commercial and Governmental use
+
+Attaching package: ‘lubridate’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    origin
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+Attaching package: ‘DT’
+
+The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+
+Attaching package: ‘shinyjs’
+
+The following object is masked from ‘package:lubridate’:
+
+    show
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+The following objects are masked from ‘package:methods’:
+
+    removeClass, show
+
+
+Attaching package: ‘geosphere’
+
+The following object is masked from ‘package:shiny’:
+
+    span
+
+
+Attaching package: ‘magrittr’
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+Attaching package: ‘timevis’
+
+The following object is masked from ‘package:shinyjs’:
+
+    runExample
+
+The following object is masked from ‘package:shiny’:
+
+    runExample
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+######################### Warning from 'xts' package ##########################
+#                                                                             #
+# The dplyr lag() function breaks how base R's lag() function is supposed to  #
+# work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+# source() into this session won't work correctly.                            #
+#                                                                             #
+# Use stats::lag() to make sure you're not using dplyr::lag(), or you can add #
+# conflictRules('dplyr', exclude = 'lag') to your .Rprofile to stop           #
+# dplyr from breaking base R's lag() function.                                #
+#                                                                             #
+# Code in packages is not affected. It's protected by R's namespace mechanism #
+# Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+#                                                                             #
+###############################################################################
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats 1.0.0     ✔ readr   2.1.4
+✔ purrr   1.0.1     ✔ tibble  3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ magrittr::extract() masks tidyr::extract()
+✖ dplyr::filter()     masks stats::filter()
+✖ xts::first()        masks dplyr::first()
+✖ dplyr::lag()        masks stats::lag()
+✖ xts::last()         masks dplyr::last()
+✖ purrr::set_names()  masks magrittr::set_names()
+✖ shinyjs::show()     masks lubridate::show(), methods::show()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: viridisLite
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+Loading required package: sysfonts
+Loading required package: showtextdb
+
+Attaching package: ‘fmsb’
+
+The following objects are masked from ‘package:epitools’:
+
+    oddsratio, rateratio, riskratio
+
+No renderer backend detected. gganimate will default to writing frames to separate files
+Consider installing:
+- the `gifski` package for gif output
+- the `av` package for video output
+and restarting the R session
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+Warning: The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+Error in parse(file, keep.source = FALSE, srcfile = src, encoding = enc) : 
+  /mnt/e/2023/0324asthmaregistry/asthmaapp0417/ui.R:383:1: unexpected ')'
+382:   
+383: )
+     ^
+Possible unmatched ')' at:
+383:)
+    ^
+Warning: Error in sourceUTF8: Error sourcing /mnt/e/2023/0324asthmaregistry/asthmaapp0417/ui.R
+  1: shiny::runApp
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
+trying URL 'https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js'
+Content type 'text/javascript' length 105461 bytes (102 KB)
+==================================================
+downloaded 102 KB
+
+Joining with `by = join_by(首诊时间)`
+[1] "------test1------"
+[1] "------test2------"
+[1] "------test3------"
+[1] "------test4------"
+[1] "------test5------"
+[1] "------test6------"
+[1] "------test7------"
+[1] "------test70------"
+[1] "------test8------"
+[1] "------test9------"
+[1] "------test10------"
+[1] "------test11------"
+Warning in apply(province_final, 2, as.numeric) :
+  NAs introduced by coercion
+[1] "------test12------"
+[1] "------test13------"
+[1] "part a"
+Warning: Values from `总分` are not uniquely identified; output will contain list-cols.
+• Use `values_fn = list` to suppress this warning.
+• Use `values_fn = {summary_fun}` to summarise duplicates.
+• Use the following dplyr code to identify duplicates.
+  {data} %>%
+  dplyr::group_by(您的单位名称1) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
+  dplyr::filter(n > 1L)
