@@ -272,7 +272,7 @@ body <- dashboardBody(
                #column( width = 6,h4("周入组人数排名", align = 'center'), renderUI("dy_rank")),
                        
                        column( width = 6,h4("质控数据问题分类", align = 'center'), highchartOutput("QC_pie")),
-                       column( width = 6,h4("质控进度情况", align = 'center'),DT::dataTableOutput("QC_table")  )
+                       column( width = 6,h4(paste0("质控进度情况(已质控",QC_center_nums ,"家中心,",QC_nums,"例患者)"), align = 'center'),DT::dataTableOutput("QC_table")  )
                       
              )
              

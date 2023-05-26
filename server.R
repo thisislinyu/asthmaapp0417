@@ -51,7 +51,7 @@ server <-
                                    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
                                    lengthMenu = list(c(nrow(pm11),25,50,100,-1),
                                                      c(nrow(pm11),25,50,100,"All")),
-                                   columnDefs = list(list(className = 'dt-center', targets = c(1,2))),
+                                   columnDefs = list(list(className = 'dt-center', targets = c(1,2,6))),
                                    columnDefs = list(list(className = 'dt-left', targets = c(3:5)))
                                    
                                    )) %>% 
@@ -78,7 +78,15 @@ server <-
           backgroundSize = '100% 90%',
           backgroundRepeat = 'no-repeat',
           backgroundPosition = 'center'
-        )
+        )%>%
+      formatStyle(
+        c( '前十例质控完成数/录入超过十例中心数量'),
+        background = styleColorBar( 
+          c(0,max( map(pm11$`前十例质控完成数/录入超过十例中心数量`,~eval(parse(text = .x)))%>%unlist())*200) , '#ff7518'),
+        backgroundSize = '100% 90%',
+        backgroundRepeat = 'no-repeat',
+        backgroundPosition = 'center'
+      )
                                                      
     })
     
