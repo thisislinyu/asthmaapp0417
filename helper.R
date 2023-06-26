@@ -917,17 +917,18 @@ print('part a')
 #### follow-up1 ------------
 library(lubridate)
 
-pts_followup <- pts_wk_submitted  %>% 
+pts_wk_submitted_hold1 <- pts_wk %>% 
+  filter(是否提交==1 | (病例状态=="暂存病例" & 当前病历=="复诊1"))
+ 
+
+pts_followup <- pts_wk_submitted_hold1  %>% 
   mutate(复诊1超窗 = case_when( (实际复诊时间 <= 预计结束复诊时间) & 
                               (实际复诊时间 >= 预计开始复诊时间)  ~ "完成",
                         (预计结束复诊时间<Sys.Date() & is.na(实际复诊时间)) ~ "超窗",
                         实际复诊时间 > 预计结束复诊时间 ~ "超窗",
                         实际复诊时间 < 预计开始复诊时间 ~ "提前复诊1",
-                        TRUE ~NA)
-       
-                        
-         
-         
+                        TRUE ~NA) 
+   
          
   ) %>% 
   select("所属医院", "姓名", "性别", "年龄",  "首诊时间", "预计复诊时间", "预计开始复诊时间", 
@@ -935,14 +936,74 @@ pts_followup <- pts_wk_submitted  %>%
                "预计结束复诊2时间", "实际复诊2时间", "当前病历", "病例状态", 
                "week", "是否提交" )%>% 
   left_join(info %>% select(id,区域经理,中心名称),by=c("所属医院"="中心名称")) %>% 
-  arrange(desc(复诊1超窗))
+  arrange(desc(复诊1超窗)) %>% 
+  mutate(复诊1超窗 = case_when(复诊1超窗 =='超窗' & !is.na(实际复诊时间) ~ "超窗完成复诊",
+                              复诊1超窗 =='超窗' & is.na(实际复诊时间) ~ "超窗待复诊",
+                           复诊1超窗 == '完成'~ '按期完成复诊1',
+                           复诊1超窗 == '提前复诊1'~ NA,
+                           is.na(复诊1超窗) & (Sys.Date() >= 预计开始复诊时间 & Sys.Date() <= 预计结束复诊时间) ~ "可进行复诊1",
+                           TRUE ~ 复诊1超窗
+    
+    
+  )) %>% 
+  mutate(未来7天可复诊1 = 复诊1超窗== "可进行复诊1" & Sys.Date()+7 >=预计结束复诊时间,
+         复诊1超窗 = ifelse(复诊1超窗=='超窗完成复诊' & 病例状态=='暂存病例', "超窗待复诊",复诊1超窗))
 
 pts_followup_aft_window <- pts_followup %>% 
-  filter(复诊1超窗 == "超窗") %>% 
+  filter(复诊1超窗 == "超窗完成复诊" | 复诊1超窗 == "超窗待复诊") %>% 
   select("区域经理","所属医院", "姓名","首诊时间", "预计复诊时间", "预计开始复诊时间", 
-         "预计结束复诊时间", "实际复诊时间", "复诊1超窗", "当前病历", 
+         "预计结束复诊时间", "实际复诊时间", "复诊1超窗", "当前病历", "病例状态",
          "id" ) %>% 
   arrange(首诊时间)
+
+
+
+fu_7days <- pts_followup %>% 
+  group_by(区域经理,所属医院) %>% 
+  summarise(未来7天需完成复诊1 =  replace_na(sum(未来7天可复诊1),0)) 
+
+fu1_notification <- pts_followup %>% 
+  group_by(区域经理,所属医院,复诊1超窗) %>%
+  summarise(n=n()) %>% 
+  pivot_wider(names_from = 复诊1超窗,
+                               values_from = n) %>% 
+  left_join(fu_7days,by=c('区域经理','所属医院')) %>% 
+  set_names(c("区域经理", "所属医院", "未到复诊1时间", 
+              "按期完成复诊1","正常待复诊1","超窗完成复诊1",  "超窗待复诊1",
+           "未来7天需完成复诊1"
+            )) %>% 
+  mutate(正常待复诊1 = replace_na(正常待复诊1,0)) 
+  
+  fu1_summarise <- fu1_notification[,-c(1,2)] %>%
+    summarise(across(where(is.numeric), ~ sum(.x, na.rm = TRUE))) %>% 
+    mutate(区域经理='合计',
+           所属医院='') %>% 
+    select(区域经理,所属医院,everything())
+    
+  
+  fu1_notice2 <-  bind_rows(fu1_notification,fu1_summarise) %>% 
+  mutate('7天内正常待复诊/所有正常待复诊1' = paste0(未来7天需完成复诊1,"/",正常待复诊1))
+  
+  
+  fu1_notice3 <- fu1_notice2 %>% filter(区域经理!='合计')%>% 
+  arrange(desc(未来7天需完成复诊1),超窗待复诊1) %>% 
+    bind_rows(fu1_notice2 %>% filter(区域经理=='合计')) %>% 
+  select("区域经理", "所属医院", 
+         "按期完成复诊1","超窗完成复诊1", '7天内正常待复诊/所有正常待复诊1', "超窗待复诊1")
+
+  ##) %>% 
+  #left_join(center_rank_final1,by=c('所属医院'='中心名称'))
+
+
+
+ 
+
+
+
+
+         
+         
+           
 
 pm12 <- left_join(pm11,
           pts_followup_aft_window$区域经理 %>% 
@@ -1245,11 +1306,12 @@ prediction_dat1 <- prediction_dat %>% pivot_longer(-周,names_to = "plan") %>%
 prediction_plot <-  highchart() %>%
   hc_exporting(enabled = TRUE, formAttributes = list(target = "_blank",encoding = 'utf-8')) %>%
   hc_chart(type = 'line') %>%
-  hc_series(   list(name = '实际入组例数', data =prediction_dat$实际入组例数, color = '#7ed0f8', dashStyle = 'shortDot', marker = list(symbol = 'triangle') ),
+  hc_series(   list(name = '实际入组例数', data =prediction_dat$实际入组例数, color = '#ffdc7e', dashStyle = 'shortDot', marker = list(symbol = 'triangle') ),
                
-               list(name = '预测方案1', data =prediction_dat$预测方案1, color='#ffdc7e', marker = list(symbol = 'circle') ),
-               list(name = '预测方案2', data =prediction_dat$预测方案2, color='#faaa89', marker = list(symbol = 'circle') )
-               
+               #list(name = '预测方案1', data =prediction_dat$预测方案1, color='#ffdc7e', marker = list(symbol = 'circle') ),
+               #list(name = '预测方案2', data =prediction_dat$预测方案2, color='#faaa89', marker = list(symbol = 'circle') ),
+               list(name = '项目规划例数', data =prediction_dat$计划8000, color='#faaa89', marker = list(symbol = 'circle') )
+              
                # list(name = '每周新增入组人数', data =day_wk_mth_time_series$wk_Freq , color = 'red', marker = list(symbol = 'circle') ),
                # list(name = '累计入组人数（周）', data =day_wk_mth_time_series$wk_cum_pts, color = 'red', dashStyle = 'shortDot', marker = list(symbol = 'triangle')  )
   ) %>%
@@ -1260,7 +1322,7 @@ prediction_plot <-  highchart() %>%
     list(categories =unique(prediction_dat$周))
   )%>%
   
-  hc_yAxis( title = list(text = "入组人数")
+  hc_yAxis( title = list(text = "入组例数")
             #,
             # labels = list( format = "${value:,.0f} m")
   ) %>%

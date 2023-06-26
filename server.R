@@ -241,7 +241,18 @@ server <-
                                                      c(nrow(pts_followup_aft_window),25,50,100,"All"))))
     })
     
-    output$ QC_fill_t <- DT::renderDataTable({
+    # output$fu1_notice_t <- DT::renderDataTable({
+    #   
+    #   DT::datatable(fu1_notice, filter='top', editable = 'cell',extensions = 'Buttons',
+    #                 options = list(dom = 'Blfrtip',
+    #                                scrollX = TRUE,
+    #                                scrollY = TRUE,
+    #                                buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    #                                lengthMenu = list(c(nrow(fu1_notice),25,50,100,-1),
+    #                                                  c(nrow(fu1_notice),25,50,100,"All"))))
+    # })
+    
+    output$QC_fill_t <- DT::renderDataTable({
       
       DT::datatable(QC_fill, filter='top', editable = 'cell',extensions = 'Buttons',
                     options = list(dom = 'Blfrtip',
@@ -251,13 +262,60 @@ server <-
                                    lengthMenu = list(c(nrow(QC_fill),25,50,100,-1),
                                                      c(nrow(QC_fill),25,50,100,"All"))))
     })
+    
+    mysketch <- htmltools::withTags(table(
+      class = 'display',
+      thead(
+        tr(
+          th(rowspan = 2, '区域经理'),
+          th(rowspan = 2,'所属医院'),
+          th(colspan = 2, '已完成复诊1'),
+          th(colspan = 2, '待复诊1')
+        ),
+        tr(
+          lapply(c( "按期完成复诊1","超窗完成复诊1",
+                    '7天内正常待复诊/所有正常待复诊1', "超窗待复诊1"), th)
+        )
+      )
+    ))
+    
+    
+    
+    headjs <- "function(thead) {
+   $(thead).closest('thead').find('th').eq(2).css('background-color','FFCA99FF');
+  $(thead).closest('thead').find('th').eq(4).css('background-color', 'FFCA99FF');
+  $(thead).closest('thead').find('th').eq(5).css('background-color', 'FFCA99FF');
+
+    $(thead).closest('thead').find('th').eq(3).css('background-color', 'FF8F33FF');
+  $(thead).closest('thead').find('th').eq(6).css('background-color', 'FF8F33FF');
+  $(thead).closest('thead').find('th').eq(7).css('background-color', 'FF8F33FF');
+
+ }"
    
     
+    output$fu1_notice_t <- DT::renderDT({
+      DT::datatable(fu1_notice3, filter='top', editable = 'cell',extensions = 'Buttons',
+                                      container = mysketch, 
+                                     rownames = FALSE,
+                                     options = list(dom = 'Blfrtip',
+                                                      headerCallback = JS(headjs),
+                                                    scrollX = TRUE,
+                                                    scrollY = TRUE,
+                                                    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+                                                    lengthMenu = list(c(nrow(fu1_notice3),25,50,100,-1),
+                                                                      c(nrow(fu1_notice3),25,50,100,"All")),
+                                                    columnDefs = list(list(className = 'dt-center', targets =c(2,3,4,5) ))
+                                     ))
+
+    })
   
    
   }
 
 ##3.weekly update--------
+
+## 4. follow up-------
+
 
 
 

@@ -328,6 +328,7 @@ body <- dashboardBody(
              # ),
              
              fluidRow( column( width = 12,h4("超窗患者列表", align = 'center'), DT::dataTableOutput("pts_followup_aft_window_t")),
+                       column( width = 12,h4("随访1情况", align = 'center'), DT::DTOutput("fu1_notice_t")),
                        column( width = 12,h4("随访情况列表", align = 'center'), DT::dataTableOutput("pts_firstFL"))
                        
                        
