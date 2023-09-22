@@ -1,0 +1,28 @@
+---
+title: "Untitled"
+author: "Lin Yu"
+date: '2023-08-08'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+getwd()
+```
+
+```{r include=FALSE}
+source('R/01helper.R',encoding = 'utf-8')
+source('R/02data.R',encoding = 'utf-8')
+```
+```{r include=FALSE}
+source('R/03output.R',encoding = 'utf-8')
+```
+
+
+```{r}
+DescTools::Desc(workdat1)
+```
+

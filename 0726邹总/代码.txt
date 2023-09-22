@@ -1,0 +1,46 @@
+tmp <- table(pts_wk$所属医院) %>% data.frame()
+tmp1 <- left_join(tmp,center_rank_final1,by=c('Var1'='中心名称')) %>% 
+  mutate(累计病例数 = ifelse(is.na(累计病例数),Freq,累计病例数),
+         index = '已启动') 
+
+tmp2 <- left_join(info,tmp1,by=c('中心名称'='Var1'))
+
+rio::export(tmp2,'data/已启动95家名单.xlsx')
+
+prediction_dat <- read_excel("0726邹总/哮喘项目进度预测.xlsx") %>% 
+  mutate(日期 = as.Date(日期,format = '%m'),
+         日期1 = str_remove(日期,'2023-'))
+  
+
+highchart() %>%
+  hc_exporting(enabled = TRUE, formAttributes = list(target = "_blank",encoding = 'utf-8')) %>%
+  hc_chart(type = 'line') %>%
+  hc_series( 
+    #list(name = '累计入组人数（天）', data =day_wk_mth_time_series$day_cum_pts, color='orange', marker = list(symbol = 'circle') ),
+    #            list(name = '每日新增入组人数', data =day_wk_mth_time_series$per_day_enrolled, color = 'red', dashStyle = 'shortDot', marker = list(symbol = 'triangle') )
+    list(name = '实际入组例数', data =prediction_dat$`实际入组例数` , color = 'orange',dashStyle = 'shortDot', marker = list(symbol = 'triangle') ),
+    list(name = '项目规划例数', data = prediction_dat$`项目规划例数` , color = '#F76A5E',  marker = list(symbol = 'circle')  )
+  ) %>%
+  #hc_xAxis( categories = unique(flex_time_series$首诊时间) ) 
+  
+  hc_xAxis( categories =prediction_dat$日期1
+  ) %>%
+  
+  hc_yAxis( title = list(text = "入组人数")
+            #,
+            # labels = list( format = "${value:,.0f} m")
+  ) %>%
+  hc_plotOptions(column = list(
+    dataLabels = list(enabled = F),
+    #stacking = "normal",
+    enableMouseTracking = T ) 
+  )%>%
+  hc_tooltip(table = TRUE,
+             sort = TRUE,
+             pointFormat = paste0( '<br> <span style="color:{point.color}">\u25CF</span>',
+                                   " {series.name}: {point.y} 人"),
+             headerFormat = '<span style="font-size: 13px">Date {point.key}</span>'
+  ) %>%
+  hc_legend( layout = 'vertical', align = 'left', verticalAlign = 'top', floating = T, x = 100, y = 000 )
+
+

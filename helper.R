@@ -1,3 +1,4 @@
+## library
 library(shinydashboard)
 library(shiny)
 library(dplyr)
@@ -53,8 +54,114 @@ library(gghighlight)
 library(readxl)
 library(fmsb)
 library(gganimate)
+#library(echarts4r)
+#library(echarts4r.maps)
+library(stringr)
+#library("echarts4r.maps")
 # install.packages("devtools")
 #devtools::install_github("hadley/emo")
+
+#Sys.setlocale('LC_ALL',"English")
+
+getlastdate <- function(day) {
+  day1 = c('周一','周二','周三','周四','周五','周六','周日')
+  eday1 = c('Mon','Tue','Wed','Thu','Fri','Sat','Sun')
+  
+  eday = eday1[which(day1==day)]
+  library(lubridate)
+  dates <- seq((Sys.Date()-7), (Sys.Date()-1), by="days")
+  dates[wday(dates, label=T)==day | wday(dates, label=T)==eday]
+}
+
+
+last_week_f <- function(data){
+  pts <- data %>% filter(as.Date(首诊时间) < getlastdate('周五') )
+  pts_wk <- pts %>% 
+    mutate(首诊时间 = as.Date(首诊时间),
+           week = isoweek(ymd(首诊时间))
+    )%>% 
+    filter(首诊时间 >= as.Date(earliest_date)) %>% 
+    filter(首诊时间 <= today()) %>% 
+    mutate(是否提交= ifelse(病例状态=="暂存病例",0,1))
+  
+  submit_status <- pts_wk %>% 
+    group_by(所属医院) %>% 
+    dplyr::summarise(`累计病例数` = n(),
+                     `已提交(%)` = round(mean(是否提交)*100,2)
+    )
+  
+  fstenroll <- pts_wk  %>%group_by(所属医院) %>% 
+    mutate( 首例入组时间 = min(首诊时间) )%>%  
+    select(所属医院,首例入组时间)%>%unique() %>% 
+    mutate(duration= today()-首例入组时间)
+  
+  
+  
+  pts_wk_submitted <- pts_wk %>% filter(是否提交==1) 
+  
+  hosp_cum <-  table(pts_wk_submitted$所属医院) %>% data.frame() %>% 
+    left_join(QC_n,by=c("Var1"="中心 (中心名称的填写请与数据录入系统保持一致）")) 
+  
+  
+  
+  
+  
+  by_hosp_total <- table(pts_wk_submitted$所属医院) %>% data.frame() %>% 
+    inner_join(fstenroll,by=c("Var1"="所属医院")) %>% 
+    mutate(day_avg =Freq/as.numeric(duration),
+           week_avg = Freq/ (as.numeric(duration)/7)) %>% 
+    mutate(week_avg = ifelse( (as.numeric(duration) < 7 & (week_avg>Freq)),Freq,week_avg)) %>% 
+    mutate(enrollment_rank = rank(desc(day_avg))) %>% 
+    arrange(.,enrollment_rank) %>% 
+    mutate(每周入组人数得分 = percentile(day_avg)*0.1) 
+  
+  
+  center_rank <- full_join(by_hosp_total,phaseI_top20,by=c("Var1"="一期优秀中心名称")) %>% 
+    mutate(是否重点单位得分 = ifelse(is.na(score2),0,score2),
+           PM打分 = NA,
+           质控合格率得分=NA) %>% 
+    select(-score2,-enrollment_rank,-首例入组时间)
+  colnames(center_rank) <- c("中心名称","已提交病例数","首例提交至今(天)","天平均入组人数","平均每周提交病例数","每周入组人数得分","是否重点单位得分","PM打分","质控合格率得分")
+  
+  center_rank_final <- left_join(center_rank,info %>% select(中心名称,区域经理),by=c("中心名称")) %>% 
+    mutate(每周入组人数得分 = ifelse(is.na(平均每周提交病例数),0,每周入组人数得分)) %>% 
+    arrange(.,desc(是否重点单位得分),desc(每周入组人数得分)) %>% 
+    select("中心名称", "已提交病例数","首例提交至今(天)","天平均入组人数","平均每周提交病例数", "每周入组人数得分", "是否重点单位得分", 
+           "区域经理","PM打分", "质控合格率得分")  %>% 
+    mutate(天平均入组人数 = round(天平均入组人数,2),
+           平均每周提交病例数 = round(平均每周提交病例数,2)) %>% 
+    mutate(总分= (ifelse(is.na(每周入组人数得分),0,每周入组人数得分)+
+                  ifelse(is.na(是否重点单位得分),0,是否重点单位得分)+
+                  ifelse(is.na(PM打分),0,PM打分)+
+                  ifelse(is.na(质控合格率得分),0,质控合格率得分)
+    ))
+  
+  center_rank_final1 <- left_join(center_rank_final,submit_status,by=c("中心名称"="所属医院")) %>% 
+    select(c("中心名称", "累计病例数","已提交病例数", "已提交(%)","首例提交至今(天)",
+             #"天平均入组人数", 
+             "平均每周提交病例数", "每周入组人数得分", "是否重点单位得分", "区域经理", 
+             "PM打分", "质控合格率得分", "总分"))
+  
+  
+  center_rank_final1 <- center_rank_final1 %>% 
+    mutate(应继续录入例数 = case_when(100-累计病例数 <= 0 ~ 0,
+                               100-累计病例数 >0 ~ 100-累计病例数,
+                               TRUE ~ 100
+    ),
+    每周需录入 = ceiling(应继续录入例数/(as.numeric(as.Date('2023-09-30')-Sys.Date())/7)),
+    
+    应继续提交病例数 = case_when(100-已提交病例数 <= 0 ~ 0,
+                         100-已提交病例数 >0 ~ 100-已提交病例数,
+                         TRUE ~ 100),
+    
+    每周需提交 = ceiling(应继续提交病例数/(as.numeric(as.Date('2023-09-30')-Sys.Date())/7))
+    )
+  
+  return(center_rank_final1)
+  
+}
+
+
 ## 0. read data-----
 
 allfiles <-  list.files(paste0(getwd(),"/data"))
@@ -68,7 +175,9 @@ if(file.exists(pts_path)){
   pts <- read_excel(paste0("data/",pts_files[length(pts_files)]))
   
 }
- 
+
+
+
 info <- read_excel("data/信息表.xlsx")
 feno <- read_excel("data/feno.xlsx") 
 agreement <- read_excel("data/agreement.xlsx") %>% mutate(协议日期 = ymd(日期))
@@ -77,12 +186,20 @@ score <- read_excel("data/score.xlsx") %>%
          	"您的单位名称",	"总分",	"您的姓名",	"您的单位名称1"
 )
 QC <- read_excel("data/质控表.xlsx") 
+QC_3 <- read_excel("data/质控表.xlsx",sheet = '3月随访质控') 
 map_province22 <- read_excel("data/map_province22.xlsx") 
-cn_map <- download_map_data("https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js")
+#cn_map <- download_map_data("https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js")
+
+# cn_map <- readLines("https://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js", warn = FALSE, encoding = "UTF-8")
+
+
 phaseI_top20 <- read_excel("data/phaseI_top20.xlsx") 
 
 earliest_date <- "2023-01-18" 
-tmp
+
+
+
+
 pts_wk <- pts %>% 
   mutate(首诊时间 = as.Date(首诊时间),
          week = isoweek(ymd(首诊时间))
@@ -99,8 +216,11 @@ submit_status <- pts_wk %>%
   
 
 latest_pts_date <- Sys.time()
+library(stringr)
+#latest_pts_date <- str_remove_all(pts_files[length(pts_files)],"[患者数据_.xlsx]") %>% as.Date()
+
 enroll_tot <- pts %>% nrow()
-enroll_hosp_tot <- pts$所属医院 %>% unique() %>% length()
+enroll_hosp_tot <- pts$所属医院 %>% na.omit() %>% unique() %>% length()
 ##1.1 output1 每天入组情况 时序图---------
 
 by_day <- pts_wk %>% 
@@ -261,6 +381,15 @@ QC_n <- QC_fill %>%select(`区域经理`,`中心 (中心名称的填写请与数
   dplyr::summarise(QCed = n()) 
 
 
+QC3 <- QC_3[rowSums(is.na(QC_3))!=ncol(QC_3),]  ## remove rows with all NA
+QC3_fill <- tidyr::fill(QC3, c(`区域经理`,`中心 (中心名称的填写请与数据录入系统保持一致）`,患者,
+                              `3月随访时间(录入格式：yyyy/mm/dd)`)) 
+
+QC3_n <- QC3_fill %>%select(`区域经理`,`中心 (中心名称的填写请与数据录入系统保持一致）`,患者) %>% 
+  unique() %>% group_by(`中心 (中心名称的填写请与数据录入系统保持一致）`) %>% 
+  dplyr::summarise(QCed = n()) 
+
+
 
 ##stop----------------
 print("------test2------")
@@ -367,6 +496,12 @@ p_QC_pie <-   highchart() %>%
 
 flex_time_series1 <- xts::xts(x = by_day$per_day_enrolled, order.by = by_day$首诊时间)
 
+
+#last_week_datset <- read_excel(paste0("data/患者数据_",Sys.Date() - 7,'.xlsx'))
+
+#last_week_enroll <- last_week_f(data=last_week_datset) 
+
+last_week_enroll <- last_week_f(data=pts) 
 #######1. cumulative per day------
 ##stop----------------
 print("------test3------")
@@ -573,6 +708,40 @@ center_rank_final1 <- left_join(center_rank_final,submit_status,by=c("中心名�
            #"天平均入组人数", 
            "平均每周提交病例数", "每周入组人数得分", "是否重点单位得分", "区域经理", 
            "PM打分", "质控合格率得分", "总分"))
+
+
+center_rank_final1 <- center_rank_final1 %>% 
+  mutate(应继续录入例数 = case_when(100-累计病例数 <= 0 ~ 0,
+                             100-累计病例数 >0 ~ 100-累计病例数,
+                             TRUE ~ 100
+  ),
+         每周需录入 = ceiling(应继续录入例数/(as.numeric(as.Date('2023-09-30')-Sys.Date())/7)),
+  
+  应继续提交病例数 = case_when(100-已提交病例数 <= 0 ~ 0,
+                       100-已提交病例数 >0 ~ 100-已提交病例数,
+                       TRUE ~ 100),
+  
+  每周需提交 = ceiling(应继续提交病例数/(as.numeric(as.Date('2023-09-30')-Sys.Date())/7))
+  )
+  
+
+  
+center_rank_final1 <- left_join(center_rank_final1,last_week_enroll
+                                %>% select(中心名称,累计病例数,已提交病例数),by='中心名称') %>% 
+  mutate(本周新增录入 = 累计病例数.x - 累计病例数.y,
+         本周新增提交 = 已提交病例数.x - 已提交病例数.y) %>% 
+  select( c("中心名称", "累计病例数.x", "已提交病例数.x", "已提交(%)", 
+            "首例提交至今(天)", "平均每周提交病例数","本周新增录入","本周新增提交", "每周入组人数得分", 
+            "是否重点单位得分", "区域经理", "PM打分", "质控合格率得分", "总分", 
+            "应继续录入例数", "每周需录入", "应继续提交病例数", "每周需提交"
+  )) %>% 
+  set_names( c("中心名称", "累计病例数", "已提交病例数", "已提交(%)", 
+               "首例提交至今(天)", "平均每周提交病例数","本周新增录入","本周新增提交", "每周入组人数得分", 
+               "是否重点单位得分", "区域经理", "PM打分", "质控合格率得分", "总分", 
+               "应继续录入例数", "每周需录入", "应继续提交病例数", "每周需提交"
+  ))
+
+
 
 week_mean <- ( na.omit(center_rank_final1$平均每周提交病例数) %>% mean() )%>% round(1)
 
@@ -870,34 +1039,34 @@ stops2 <- list_parse2(stops2)
 
 stops3 <- list_parse2(stops3)
 
-p_map_province_ratio <- highchart() %>%
-  hc_add_series_map(
-    cn_map, map_stats, value = "已入中心比例", joinBy = c('woe-name','province_en'),
-    name = "已入中心比例"
-  )  %>% 
-  hc_colorAxis(stops =stops1) %>% 
- # hc_title(text = "各省份中心启动比例") %>% 
-  hc_subtitle(text = "中心启动比例") 
+# p_map_province_ratio <- highchart() %>%
+#   hc_add_series_map(
+#     cn_map, map_stats, value = "已入中心比例", joinBy = c('woe-name','province_en'),
+#     name = "已入中心比例"
+#   )  %>% 
+#   hc_colorAxis(stops =stops1) %>% 
+#  # hc_title(text = "各省份中心启动比例") %>% 
+#   hc_subtitle(text = "中心启动比例") 
+# 
+# 
+# p_map_province_pts <- highchart() %>%
+#   hc_add_series_map(
+#     cn_map, map_stats, value = "患者数量", joinBy = c('woe-name','province_en'),
+#     name = "已入患者数量"
+#   )  %>% 
+#   hc_colorAxis(stops =stops2) %>% 
+#   #hc_title(text = "各省份入组患者数量") %>% 
+#   hc_subtitle(text = "入组患者总数")
 
-
-p_map_province_pts <- highchart() %>%
-  hc_add_series_map(
-    cn_map, map_stats, value = "患者数量", joinBy = c('woe-name','province_en'),
-    name = "已入患者数量"
-  )  %>% 
-  hc_colorAxis(stops =stops2) %>% 
-  #hc_title(text = "各省份入组患者数量") %>% 
-  hc_subtitle(text = "入组患者总数")
-
-
-p_map_province_pts_address <- highchart() %>%
-  hc_add_series_map(
-    cn_map, pts_address1, value = "Freq", joinBy = c('woe-name','province_en'),
-    name = "已入患者数量"
-  )  %>% 
-  hc_colorAxis(stops = color_stops(n=2,c("#FFF1BCFF","#FF5500FF"))) %>% 
-  #hc_title(text = "各省份入组患者数量") %>% 
-  hc_subtitle(text = "入组患者总数")
+# 
+# p_map_province_pts_address <- highchart() %>%
+#   hc_add_series_map(
+#     cn_map, pts_address1, value = "Freq", joinBy = c('woe-name','province_en'),
+#     name = "已入患者数量"
+#   )  %>% 
+#   hc_colorAxis(stops = color_stops(n=2,c("#FFF1BCFF","#FF5500FF"))) %>% 
+#   #hc_title(text = "各省份入组患者数量") %>% 
+#   hc_subtitle(text = "入组患者总数")
 
 
 # colors <- c("red", "blue", "green" , "yellow")
@@ -910,6 +1079,20 @@ p_map_province_pts_address <- highchart() %>%
 #                stops = color_stops(n=length(colors), colors = colors)) %>% 
 #   #hc_title(text = "各省份入组患者数量") %>% 
 #   hc_subtitle(text = "入组患者总数")
+
+
+
+pts_address2 <- pts_address1 %>%
+  mutate(prov1 = str_remove_all(prov,pattern = '[维吾尔壮族自治区省市]'))
+
+
+# 
+# p_map_province_pts_address <- 
+#   pts_address2 |>
+#   e_charts(prov1) |> # 区域
+#   em_map("China") |>
+#   e_map(Freq, map = "China") |>
+#   e_visual_map(Freq)
 
 ##-----------last----------
 print('part a')
@@ -954,8 +1137,44 @@ pts_followup_aft_window <- pts_followup %>%
   select("区域经理","所属医院", "姓名","首诊时间", "预计复诊时间", "预计开始复诊时间", 
          "预计结束复诊时间", "实际复诊时间", "复诊1超窗", "当前病历", "病例状态",
          "id" ) %>% 
-  arrange(首诊时间)
+  arrange(首诊时间) %>% 
+  mutate(已超窗天数 = Sys.Date()- as.Date(预计结束复诊时间))
 
+loss_fu <- pts_followup_aft_window %>% filter(复诊1超窗=='超窗待复诊') %>% 
+  mutate(超窗月 = case_when( 已超窗天数 <= 15  ~ '0',
+                          已超窗天数 >15 & 已超窗天数 <=30 ~ '1',
+                         已超窗天数 >30 & 已超窗天数 <=60 ~ '2',
+                         已超窗天数 >60 & 已超窗天数 <=90 ~ '3',
+                         已超窗天数 >90  ~ '4',
+                         ))
+ 
+  
+
+loss_fu_dat <- loss_fu %>% 
+  group_by(超窗月) %>% 
+  summarise(n=n()) %>% 
+  mutate(超窗月_label = case_when(超窗月== 0 ~ '(0,15]',
+                               超窗月==1 ~ '(15,30]',
+                               超窗月==2 ~ '(30,60]',
+                               超窗月==3 ~ '(60,90]',
+                               超窗月==4~ '> 90',
+  )) 
+
+
+
+
+
+
+
+
+# loss_fu_p <-  loss_fu %>% 
+#   mutate(已超窗天数 = as.numeric(已超窗天数)) %>% 
+#   ggplot(aes(x=已超窗天数)) + 
+#   geom_histogram() 
+#   
+
+
+  
 
 
 fu_7days <- pts_followup %>% 
@@ -968,13 +1187,12 @@ fu1_notification <- pts_followup %>%
   pivot_wider(names_from = 复诊1超窗,
                                values_from = n) %>% 
   left_join(fu_7days,by=c('区域经理','所属医院')) %>% 
-  set_names(c("区域经理", "所属医院", "未到复诊1时间", 
-              "按期完成复诊1","正常待复诊1","超窗完成复诊1",  "超窗待复诊1",
-           "未来7天需完成复诊1"
-            )) %>% 
+  set_names(c("区域经理", "所属医院", "正常待复诊1", "超窗待复诊1",'未到复诊1时间',  "按期完成复诊1", 
+              "超窗完成复诊1", "未来7天需完成复诊1")) %>% 
   mutate(正常待复诊1 = replace_na(正常待复诊1,0)) 
   
   fu1_summarise <- fu1_notification[,-c(1,2)] %>%
+    arrange(desc(超窗待复诊1),desc( 超窗完成复诊1), desc(未来7天需完成复诊1)) %>% 
     summarise(across(where(is.numeric), ~ sum(.x, na.rm = TRUE))) %>% 
     mutate(区域经理='合计',
            所属医院='') %>% 
@@ -982,19 +1200,55 @@ fu1_notification <- pts_followup %>%
     
   
   fu1_notice2 <-  bind_rows(fu1_notification,fu1_summarise) %>% 
-  mutate('7天内正常待复诊/所有正常待复诊1' = paste0(未来7天需完成复诊1,"/",正常待复诊1))
+  mutate('7天内正常待复诊|所有正常待复诊1' = paste0(未来7天需完成复诊1,"|",正常待复诊1))
   
   
   fu1_notice3 <- fu1_notice2 %>% filter(区域经理!='合计')%>% 
   arrange(desc(未来7天需完成复诊1),超窗待复诊1) %>% 
     bind_rows(fu1_notice2 %>% filter(区域经理=='合计')) %>% 
   select("区域经理", "所属医院", 
-         "按期完成复诊1","超窗完成复诊1", '7天内正常待复诊/所有正常待复诊1', "超窗待复诊1")
+         "按期完成复诊1","超窗完成复诊1", '7天内正常待复诊|所有正常待复诊1', "超窗待复诊1",'未到复诊1时间')
 
   ##) %>% 
   #left_join(center_rank_final1,by=c('所属医院'='中心名称'))
 
 
+  
+  fu1_total_n <-  fu1_notice3 %>% 
+    mutate(复诊人数 = 按期完成复诊1+超窗完成复诊1+超窗待复诊1) %>% 
+    filter(区域经理=='合计')
+  
+  thirty <-  round(100*(loss_fu$已超窗天数>30) %>% sum() / fu1_total_n$复诊人数,2)
+  
+ sixty <-  round(100*(loss_fu$已超窗天数>60) %>% sum() / fu1_total_n$复诊人数,2)
+ 
+ fu_text <-  paste0(paste0('total n:',fu1_total_n$复诊人数),'\n', paste0('>30 days:',
+                            (loss_fu$已超窗天数>30) %>% sum(),' (',
+                            thirty,'%)'),'\n',
+                     paste0('>60 days:',
+                            (loss_fu$已超窗天数>60) %>% sum(),' (',
+                            sixty,'%)')
+            )
+ 
+ 
+  loss_fu_dat %>% 
+    # mutate(name = fct_reorder(超窗月, n)) %>%
+    ggplot( aes(x=超窗月, y=n)) +
+    geom_bar(stat="identity",alpha=0.8,width=0.8,fill='skyblue')+
+    geom_text(aes(label=n), 
+              family="serif",fontface="bold",size=5,vjust=-0.3)+
+    theme_bw()+
+    scale_x_discrete(labels =loss_fu_dat$超窗月_label )+
+    xlab('days')+
+    annotate('text',
+             label = fu_text,
+             x = 4.5,
+             y = 60
+    )
+  
+  ggsave(paste0('loss_fu',Sys.Date(),'.png'),dpi=600,width = 5.99,height = 8.65,
+         limitsize = FALSE)
+ 
 
  
 
@@ -1013,7 +1267,9 @@ pm12 <- left_join(pm11,
 
 pm12$超窗人数[6] = sum(na.omit(pm12$超窗人数))
 
-
+pm12 <- pm12 %>% 
+  select(-`前十例质控完成数/录入超过十例中心数量`,
+         -超窗人数)
 
   # filter(within_2wk == TRUE) %>% 
   # group_by(所属医院) %>% 
@@ -1042,26 +1298,26 @@ sigma <- (tP-tO)/6
 
 
 
-predict_dat1
-T_opt = data.frame(首诊时间 =
-                      seq(predict_dat1$首诊时间[nrow(predict_dat1)]+1,as.Date("2023-09-30"),'day'),
-                      当日新增中心数量 = c(rep(2,25),1,
-                                   rep(0,length(seq(predict_dat1$首诊时间[nrow(predict_dat1)]+1,as.Date("2023-09-30"),'day'))-26
-                                                 
-                                                 )))
-
-predict_dat1
-T_opt = data.frame(首诊时间 =
-                     seq(predict_dat1$首诊时间[nrow(predict_dat1)]+1,as.Date("2023-09-30"),'day'),
-                   当日新增中心数量 = c(rep(2,25),1,
-                                rep(0,length(seq(predict_dat1$首诊时间[nrow(predict_dat1)]+1,as.Date("2023-09-30"),'day'))-26
-                                    
-                                )))
-
-
-
-
-
+# predict_dat1
+# T_opt = data.frame(首诊时间 =
+#                       seq(predict_dat1$首诊时间[nrow(predict_dat1)]+1,as.Date("2023-09-30"),'day'),
+#                       当日新增中心数量 = c(rep(2,25),1,
+#                                    rep(0,length(seq(predict_dat1$首诊时间[nrow(predict_dat1)]+1,as.Date("2023-09-30"),'day'))-26
+#                                                  
+#                                                  )))
+# 
+# predict_dat1
+# T_opt = data.frame(首诊时间 =
+#                      seq(predict_dat1$首诊时间[nrow(predict_dat1)]+1,as.Date("2023-09-30"),'day'),
+#                    当日新增中心数量 = c(rep(2,25),1,
+#                                 rep(0,length(seq(predict_dat1$首诊时间[nrow(predict_dat1)]+1,as.Date("2023-09-30"),'day'))-26
+#                                     
+#                                 )))
+# 
+# 
+# 
+# 
+# 
 
 
 hosp_input_ratio <- 0.4
@@ -1155,14 +1411,20 @@ hosp_time_trend_order <- hosp_time_trend2 %>% group_by(hosp_abbrev)%>%
 
 colnames(hosp_time_trend2)  <- colnames(hosp_time_trend_latest)<- c("中心名称","周","入组人数","首例入组时间", "duration" )
 
+
+hosp_names <- hosp_time_trend2$中心名称 %>% table() %>% data.frame()
+
+hosp_names = hosp_names$.[c(1:30)] 
+
 hosp_time_trend_plot1 <- hosp_time_trend2 %>%
+ # filter(hosp_time_trend2$中心名称 %in% hosp_names) %>% 
   ggplot() +
   geom_point(data=hosp_time_trend_latest,
              aes(x=周, y=入组人数, color=中心名称),shape=16,size=2) +
   theme(legend.position="none")+
   geom_line(aes(x=周, y=入组人数, color=中心名称)) +
 facet_wrap(~  factor(中心名称,levels =hosp_time_trend_order$hosp_abbrev ),
-           ncol=36,
+           ncol=10,
           # dir='v',strip.position='left',
            scales = "free")+
   theme(strip.text.y.left = element_text(angle = 0)) +
@@ -1192,7 +1454,7 @@ facet_wrap(~  factor(中心名称,levels =hosp_time_trend_order$hosp_abbrev ),
 # # theme_bw()
 # 
 # 
-ggsave("tmp3.png",width = 12,height = 9,
+ggsave(paste0('hosp_trend_',Sys.Date(),'.png'),width = 12,height = 9,
      limitsize = FALSE,dpi=300)
 
 #### 外省人数统计------------
@@ -1211,6 +1473,54 @@ right_join(by_hosp %>%
              mutate(index = c(1:nrow(.))) %>% 
              select(-Freq),by=c("所属医院" ="Var1")) %>% 
   arrange(index)
+##外市统计-----
+local_table_1 <- full_join(pts_wk,info,by=c("所属医院"="中心名称")) %>% 
+  group_by(所属医院) %>% 
+  dplyr::summarise(本市 = sum(市==中心所在市),
+                   外市 = sum(市!=中心所在市),
+                   submit_n = 本市+外市) %>% 
+  pivot_longer(cols = c(-所属医院,-submit_n),names_to = "本市or外市",values_to ="Freq" ) %>% 
+  mutate(percent = round(100*Freq/submit_n,2)) %>% 
+  filter(!is.na(Freq)) %>% 
+  right_join(by_hosp %>% 
+               mutate(index = c(1:nrow(.))) %>% 
+               select(-Freq),by=c("所属医院" ="Var1")) %>% 
+  arrange(index)
+
+##外区统计-----
+##外市统计-----
+local_table_2 <- full_join(pts_wk,info,by=c("所属医院"="中心名称")) %>% 
+  group_by(所属医院) %>% 
+  dplyr::summarise(本区 = sum(区==中心所在区),
+                   外区 = sum(区!=中心所在区),
+                   submit_n = 本区+外区) %>% 
+  pivot_longer(cols = c(-所属医院,-submit_n),names_to = "本区or外区",values_to ="Freq" ) %>% 
+  mutate(percent = round(100*Freq/submit_n,2)) %>% 
+  filter(!is.na(Freq)) %>% 
+  right_join(by_hosp %>% 
+               mutate(index = c(1:nrow(.))) %>% 
+               select(-Freq),by=c("所属医院" ="Var1")) %>% 
+  arrange(index)
+
+
+local_table_all_in_one <- local_table %>% 
+  filter(本省or外省 =='外省') %>% 
+  left_join(local_table_1 %>%
+              filter(本市or外市 =='外市'),by='所属医院') %>% 
+  left_join(local_table_2 %>%
+              filter(本区or外区 =='外区'), by = '所属医院') %>% 
+  select("所属医院" ,  "submit_n.x",
+         "Freq.x",'percent.x',
+         "Freq.y" ,  "percent.y" ,
+        "Freq","percent") %>% 
+  set_names("所属医院",'入组人数','外省人数','外省人数占比',
+            '外市人数','外市人数占比',
+            '外区人数','外区人数占比')
+
+
+rio::export(local_table_all_in_one
+              ,paste0('data/外省区市人数统计',Sys.Date(),'.xlsx'))
+
 
 address_all_p <- local_table %>% 
   hchart('bar', hcaes(x = '所属医院', y = 'Freq', group = '本省or外省'),stacking = "normal") %>%
@@ -1337,4 +1647,131 @@ prediction_plot <-  highchart() %>%
              headerFormat = '<span style="font-size: 13px">Date {point.key}</span>'
   ) %>%
   hc_legend( layout = 'vertical', align = 'left', verticalAlign = 'top', floating = T, x = 100, y = 000 )
+
+
+### follow_up1 QC-----------------
+
+
+fu1_QC <- pts_wk %>% 
+  filter(当前病历=='复诊1',
+         病例状态 != '暂存病例') %>% 
+  group_by(所属医院) %>% 
+  summarise(随访1提交例数= n())
+
+
+QC2_table <- left_join(QC_table,fu1_QC,by=c("中心名称"='所属医院')) %>% 
+  select(中心名称,已提交例数,随访1提交例数,区域经理) %>% 
+  set_names("中心名称", "首访已提交例数", "随访1已提交例数", "区域经理") %>% 
+  arrange(desc(随访1已提交例数),desc(首访已提交例数))
+
+QC3_table <- left_join(QC2_table,QC3_n,
+          by=c('中心名称'='中心 (中心名称的填写请与数据录入系统保持一致）')
+) %>% 
+  select(区域经理,everything()) %>% 
+  set_names(c("区域经理", "中心名称", "首访已提交病例数", "3月随访已提交病例数", 
+              "3月随访抽样质控病例数"))
+
+QC3_center_nums <- na.omit(QC3_table$`3月随访抽样质控病例数`) %>% length()
+
+QC3_nums <- na.omit(QC3_table$`3月随访抽样质控病例数`) %>% sum()
+
+
+
+QC3_pass_p <- 100*sum(is.na(QC3_fill$数据问题分类))/length(QC3_fill$数据问题分类)
+
+### CRC payment list--------------
+
+CRC_list <- read_excel('data/已收集付款信息的CRC名单0707.xlsx') %>%
+  select(c(
+           "1、请选择您的单位", "2、数据录入员姓名", "7、请确认本人是否已签署数据录入员协议？（协议会作为经费发放的材料之一）"
+  )) %>% 
+  unique()
+
+CRC_payment <- left_join(info,CRC_list,by=c('中心名称' = "1、请选择您的单位")) %>% 
+  mutate(`CRC签协议姓名=2、数据录入员姓名` = CRC签协议姓名 ==`2、数据录入员姓名`) %>% 
+  select(c("id", "区域经理", "省份", "中心名称","CRC签协议姓名", "2、数据录入员姓名","CRC签协议姓名=2、数据录入员姓名", 
+           "7、请确认本人是否已签署数据录入员协议？（协议会作为经费发放的材料之一）","PI", "项目期"
+          )
+  )
+
+
+tmp <- CRC_payment %>% 
+  filter(`CRC签协议姓名=2、数据录入员姓名`==FALSE)
+
+rio::export(CRC_payment, 'data/CRC_payment.xlsx')
+
+### 匹配给婷婷-------------
+
+question_dat <- read_excel("data/CRC问卷填写情况0714.xlsx")
+tingting_dat <- read_excel("data/预算明细.xlsx",sheet='人员名单')
+
+
+library(dplyr)
+tingting <- full_join(question_dat,tingting_dat,by=c('中心名称'='单位名称')) %>% unique() %>% 
+  mutate(`CRC签协议姓名=收款人姓名` = CRC签协议姓名 == 收款人姓名) %>% 
+  left_join(weekly_updates %>% select(中心名称,首例入组时间),by='中心名称')
+
+tingting$首例入组时间 %>% is.na() %>% table()
+
+rio::export(tingting,paste0('data/CRC协议及收款名单匹配',Sys.Date(),'.xlsx'))
+
+
+hyy_dat <- read_excel("data/哮喘登记库项目数据录入员第一批费用发放确认表0726.xlsx",skip=1)
+
+
+##----9月计划-------
+
+dat0912 <- read_excel('data/患者数据_2023-09-19.xlsx')
+
+aug_dat <- pts %>% filter(as.Date(首诊时间)<=as.Date('2023-08-31') & as.Date(首诊时间)>=as.Date('2023-08-01')) %>%
+  left_join(info,by=c('所属医院'='中心名称')) %>%
+  group_by(区域经理) %>%
+  summarise(n=n()) %>%
+  filter(!is.na(区域经理))
+
+
+aug_dat2 <- dat0912 %>% filter(as.Date(首诊时间)<=as.Date('2023-08-31') & as.Date(首诊时间)>=as.Date('2023-08-01')) %>%
+  left_join(info,by=c('所属医院'='中心名称')) %>%
+  group_by(区域经理) %>%
+  summarise(n=n()) %>%
+  filter(!is.na(区域经理))
+
+rio::export(aug_dat2,'data/aug_dat2_0912.xlsx')
+
+
+aug_dat3 <- dat0912 %>% filter(as.Date(首诊时间)<=as.Date('2023-08-31') & as.Date(首诊时间)>=as.Date('2023-08-01')) %>%
+  left_join(info,by=c('所属医院'='中心名称'))  %>%
+  group_by(所属医院) %>%
+  summarise(n=n()) %>%
+  left_join(info,by=c('所属医院'='中心名称')) %>%
+  select(所属医院,n,区域经理)
+
+rio::export(aug_dat3,'data/aug_dat3_0912.xlsx')
+
+
+sep_dat0908 <- pts %>% filter(as.Date(首诊时间)>as.Date('2023-08-31')) %>%
+  left_join(info,by=c('所属医院'='中心名称')) %>%
+  group_by(区域经理) %>%
+  summarise(n=n())%>%
+  filter(!is.na(区域经理))
+
+sep_plan <- aug_dat %>%
+  left_join(sep_dat0908,by='区域经理') %>%
+  set_names('区域经理','八月录入病例数','九月已录入病例数') %>%
+  mutate(九月还需录入病例数 = 八月录入病例数 - 九月已录入病例数)
+
+rio::export(sep_plan,'data/sep_plan.xlsx')
+
+
+tmp1 <- tmp %>% filter(is.na(区域经理))
+
+tmp  <- pts %>% filter(as.Date(首诊时间)<=as.Date('2023-08-31'))
+
+sep_dat0908 <- pts %>% filter(as.Date(首诊时间)>as.Date('2023-08-31')) %>%
+  left_join(info,by=c('所属医院'='中心名称')) %>%
+  select(区域经理,所属医院) %>% unique()
+
+
+sep_dat0908$区域经理 %>% table()
+
 

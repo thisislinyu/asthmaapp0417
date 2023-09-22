@@ -23,6 +23,13 @@ library(readxl)
 library(ggplot2)
 library(epitools)
 library(lubridate)
+#install.packages("echarts4r")
+library(echarts4r)
+#install.packages("remotes")
+#remotes::install_github('JohnCoene/echarts4r.maps')
+#install.packages("remotes")
+#remotes::install_github('JohnCoene/echarts4r.maps',force = TRUE)
+#library(echarts4r.maps)
 
 
 
@@ -134,9 +141,9 @@ sidebar <-
                badgeLabel = '', badgeColor = "green" ),
       menuItem("PM质控表", tabName = 'tab6', icon = icon('dashboard'),
                badgeLabel = '', badgeColor = "green" )
-     ,
-     menuItem("tmp", tabName = 'tab7', icon = icon('dashboard'),
-              badgeLabel = '', badgeColor = "green" )
+     # ,
+     # menuItem("tmp", tabName = 'tab7', icon = icon('dashboard'),
+     #          badgeLabel = '', badgeColor = "green" )
     )
   )
 
@@ -251,8 +258,9 @@ body <- dashboardBody(
       ),
      
      fluidRow( 
-       column( width = 6,h4("哮喘患者居住地分布图", align = 'center'), highchartOutput("map_province_pts_address")),
-               column( width = 6,h4("患者入组数TOP10中心入组情况(周)", align = 'center'), plotlyOutput("top10_time_series") )
+      # column( width = 6,h4("哮喘患者居住地分布图", align = 'center'), echarts4rOutput("map_province_pts_address")),
+               column( width = 6,h4("患者入组数TOP10中心入组情况(周)", align = 'center'), plotlyOutput("top10_time_series") ),
+               column( width = 6,h4("各区域经理负责中心启动情况", align = 'center'),DT::dataTableOutput("pm_out")  )
      )
       
       # fluidRow( 
@@ -276,9 +284,11 @@ body <- dashboardBody(
     tabItem( tabName = 'tab2',
              
              ####################some output here-----------
-              fluidRow( column( width = 6,h4("各中心患者入组数排名", align = 'center'), highchartOutput("by_hosp_tot")),
+              fluidRow( 
+                #column( width = 6,h4("各中心患者入组数排名", align = 'center'), highchartOutput("by_hosp_tot")),
              #,
-             column( width = 6,h4("各区域经理负责中心启动情况", align = 'center'),DT::dataTableOutput("pm_out")  )
+                column( width = 6,h4(paste0("质控进度情况(3月随访已质控",QC3_center_nums ,"家中心,",QC3_nums,"例患者,合格率",QC3_pass_p,"%)"), align = 'center'),DT::dataTableOutput("QC3_table")  )
+            # column( width = 6,h4("各区域经理负责中心启动情况", align = 'center'),DT::dataTableOutput("pm_out")  )
              ),
              
              fluidRow( 

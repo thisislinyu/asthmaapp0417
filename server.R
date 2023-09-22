@@ -51,7 +51,7 @@ server <-
                                    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
                                    lengthMenu = list(c(nrow(pm11),25,50,100,-1),
                                                      c(nrow(pm11),25,50,100,"All")),
-                                   columnDefs = list(list(className = 'dt-center', targets = c(1,2,6))),
+                                   columnDefs = list(list(className = 'dt-center', targets = c(1,2))),
                                    columnDefs = list(list(className = 'dt-left', targets = c(3:5)))
                                    
                                    )) %>% 
@@ -78,15 +78,16 @@ server <-
           backgroundSize = '100% 90%',
           backgroundRepeat = 'no-repeat',
           backgroundPosition = 'center'
-        )%>%
-      formatStyle(
-        c( '前十例质控完成数/录入超过十例中心数量'),
-        background = styleColorBar( 
-          c(0,max( map(pm11$`前十例质控完成数/录入超过十例中心数量`,~eval(parse(text = .x)))%>%unlist())*200) , '#ff7518'),
-        backgroundSize = '100% 90%',
-        backgroundRepeat = 'no-repeat',
-        backgroundPosition = 'center'
-      )
+        )
+      # %>%
+      #formatStyle(
+      #   c( '前十例质控完成数/录入超过十例中心数量'),
+      #   background = styleColorBar( 
+      #     c(0,max( map(pm11$`前十例质控完成数/录入超过十例中心数量`,~eval(parse(text = .x)))%>%unlist())*200) , '#ff7518'),
+      #   backgroundSize = '100% 90%',
+      #   backgroundRepeat = 'no-repeat',
+      #   backgroundPosition = 'center'
+      # )
                                                      
     })
     
@@ -104,11 +105,12 @@ server <-
       
     })
     
-    output$map_province_pts_address <- renderHighchart({
+   # output$map_province_pts_address <- renderEcharts4r({
       
-      hc_size(p_map_province_pts_address,600,600)
+  #    p_map_province_pts_address
+     # hc_size(p_map_province_pts_address,600,600)
       
-    })
+   # })
     
     
     
@@ -182,6 +184,25 @@ server <-
                     )
     })
     
+    output$QC3_table <- DT::renderDataTable({
+      
+      DT::datatable(QC3_table, filter='top', editable = 'cell',extensions = 'Buttons',
+                    options = list(dom = 'Blfrtip',
+                                   scrollX = TRUE,
+                                   scrollY = TRUE,
+                                   buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+                                   lengthMenu = list(c(10,25,50,100,-1),
+                                                     c(10,25,50,100,"All"))
+                                   #,
+                                   #columnDefs = list(list(targets = 5, visible = FALSE))
+                    )
+      )
+      #%>% formatStyle(
+      #  '已质控例数', 'urgent',
+      #  backgroundColor = styleEqual(c(1), c('orange'))
+     # )
+    })
+    
     
     
     ## --dynamic plot--------
@@ -237,8 +258,8 @@ server <-
                                    scrollX = TRUE,
                                    scrollY = TRUE,
                                    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
-                                   lengthMenu = list(c(nrow(pts_followup_aft_window),25,50,100,-1),
-                                                     c(nrow(pts_followup_aft_window),25,50,100,"All"))))
+                                   lengthMenu = list(c(10,25,50,100,-1),
+                                                     c(10,25,50,100,"All"))))
     })
     
     # output$fu1_notice_t <- DT::renderDataTable({
@@ -270,11 +291,12 @@ server <-
           th(rowspan = 2, '区域经理'),
           th(rowspan = 2,'所属医院'),
           th(colspan = 2, '已完成复诊1'),
-          th(colspan = 2, '待复诊1')
+          th(colspan = 2, '待复诊1'),
+          th(rowspan = 2, '未到复诊1开始时间')
         ),
         tr(
           lapply(c( "按期完成复诊1","超窗完成复诊1",
-                    '7天内正常待复诊/所有正常待复诊1', "超窗待复诊1"), th)
+                    '7天内正常待复诊|所有正常待复诊1', "超窗待复诊1"), th)
         )
       )
     ))
